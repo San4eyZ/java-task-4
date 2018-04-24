@@ -21,11 +21,11 @@ public class RealValue extends AbstractValue {
 	}
 
 	public AbstractValue sub(AbstractValue operand) {
-		return new RealValue(value + ((RealValue) operand).value);
+		return new RealValue(value - ((RealValue) operand).value);
 	}
 
 	public AbstractValue mul(AbstractValue operand) {
-		return new RealValue(value + ((RealValue) operand).value);
+		return new RealValue(value * ((RealValue) operand).value);
 	}
 
 	public AbstractValue div(AbstractValue operand)
@@ -33,7 +33,7 @@ public class RealValue extends AbstractValue {
 		double realValue = ((RealValue) operand).value;
 		if (realValue == 0.0)
 			throw new DivisionByZeroException();
-		return new RealValue(value + realValue);
+		return new RealValue(value / realValue);
 	}
 
 }

@@ -39,7 +39,7 @@ public class ComplexValue extends AbstractValue{
             throw new DivisionByZeroException();
         }
 
-        ComplexValue multiple = (ComplexValue) this.mul(operand);
+        ComplexValue multiple = (ComplexValue) this.mul(((ComplexValue) operand).conjugated());
 
         double length = Math.sqrt(cOperand.real * cOperand.real + cOperand.imag * cOperand.imag);
 
@@ -72,5 +72,9 @@ public class ComplexValue extends AbstractValue{
         }
 
         return Double.toString(this.imag).concat("i");
+    }
+
+    public ComplexValue conjugated() {
+        return new ComplexValue(this.real, -this.imag);
     }
 }
